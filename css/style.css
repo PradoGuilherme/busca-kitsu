@@ -65,7 +65,9 @@ header div span {
   width: 400px;
 }
 
-/* table */
+.descricao {
+  word-break: break-word;
+}
 
 .table-main {
   flex: 1 1 auto;
@@ -91,8 +93,6 @@ header div span {
   font-weight: 400;
   color: #fff;
 }
-
-/* body table */
 
 .table tbody tr:hover {
   background: rgba(212, 32, 38, 0.1);
