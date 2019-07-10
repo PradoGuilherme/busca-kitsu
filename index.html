@@ -23,13 +23,16 @@
       <div class="borda"></div>
     </header>
     <section class="main">
+      <div class="loading">
+        <img src="img/loader.gif" alt="Carregando...">
+      </div>
       <div class="content">
 
         <div class="flex-container" style="flex-flow: column;">
           <label for="nome-personagem" class="nome-personagem">
             Nome do personagem
           </label>
-          <input type="text" class="input-busca-personagem" name="Personagem" id="busca-personagem-nome">
+          <input type="text" class="input-busca-personagem" name="Personagem" id="busca-personagem-nome"> <div id="limpa-busca" onclick="limpaBusca()" class="limpar-busca">Limpar busca</div>
         </div>
 
         <div class="table-main">
@@ -44,12 +47,12 @@
           </table>
         </div>
 
-        <div class="wrapper-pagination">
-          <button class="prevPage">
-            <</button> <ul class="pagination">
+        <div class="list-paginacao">
+          <button onclick="backPage()" class="left"></button> 
+            <ul class="paginacao">
               <!-- paginas -->
               </ul>
-              <button class="nextPage">></button>
+            <button onclick="nextPage()" class="right"></button>
         </div>
       </div>
     </section>
