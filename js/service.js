@@ -2,8 +2,9 @@ var request = new XMLHttpRequest()
 var limit = 10
 
 function getCharacters (page, filtro, callback) {
+  var offset = limit * page
   document.querySelector('main').style = 'cursor: wait'
-  var url = 'https://kitsu.io/api/edge/characters?page[limit]=' + limit + '&page[offset]=' + (page * limit)
+  var url = 'https://kitsu.io/api/edge/characters?page[limit]=' + limit + '&page[offset]=' + offset
   if (filtro) {
     url = url + ('&filter[name]=' + filtro)
   }
