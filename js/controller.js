@@ -2,6 +2,7 @@ var personagensBody = document.getElementById('personagens')
 var maxLength = 180
 var paginaAtual = 0
 var buscaInput = ''
+var totalDePaginas
 
 window.getCharacters(paginaAtual, null, function (res) {
   addButtonsPagination(res.meta.count)
@@ -35,67 +36,4 @@ function mountTable (elementos) {
   } else {
     personagensBody.innerHTML = "<tr><td colspan='3'>Nenhum Resultado Encontrado</td></tr>"
   }
-}
-
-function addButtonsPagination (qtdTotalPersonagens) {
-  var paginacao = document.getElementsByClassName('paginacao')[0]
-  var qtdInicial
-  if (window.innerWidth < 361) {
-    qtdInicial = 3
-  } else {
-    qtdInicial = 6
-  }
-
-  paginacao.innerHTML = ''
-  if (qtdTotalPersonagens / 10 < 1) {
-    paginacao.insertAdjacentHTML('beforeend', '<li><button class="pagina-ativa" id="button-0">1</button></li>')
-  } else {
-    for (var i = 1; i <= ((1 + qtdInicial) - 1) && i <= qtdTotalPersonagens / 10; i++) {
-      if ((i - 1) === paginaAtual) {
-        paginacao.insertAdjacentHTML('beforeend', '<li><button class="pagina-ativa" id=button-' + (i - 1) + '>' + i + '</button></li>')
-      } else {
-        paginacao.insertAdjacentHTML('beforeend', '<li><button id=button-' + (i - 1) + '>' + i + '</button></li>')
-      }
-    }
-  }
-
-  var pageButton = paginacao.getElementsByTagName('button')
-  for (var z = 0; z < pageButton.length; z++) {
-    pageButton[z].addEventListener('click', function () {
-      var self = this
-      var idPagina = Number(self.id.split('-')[1])
-      paginaAtual = idPagina
-      window.getCharacters(paginaAtual, buscaInput, function (res) {
-        document.getElementById(self.id).classList.add('pagina-ativa')
-        addButtonsPagination(res.meta.count)
-        mountTable(res)
-      })
-    })
-  }
-}
-
-function nextPage () {
-  var paginaBusca = paginaAtual + 1
-  window.getCharacters(paginaBusca, buscaInput, function (res) {
-    addButtonsPagination(res.meta.count)
-    document.getElementById('button-' + paginaBusca).classList.add('pagina-ativa')
-    document.getElementById('button-' + paginaAtual).classList.remove('pagina-ativa')
-    paginaAtual = paginaBusca
-    mountTable(res)
-  })
-}
-
-function backPage () {
-  var paginaBuscaBack = paginaAtual - 1
-  if (paginaBuscaBack < 0) {
-    document.querySelector('main').style = 'cursor: auto'
-    return
-  }
-  window.getCharacters(paginaBuscaBack, buscaInput, function (res) {
-    addButtonsPagination(res.meta.count)
-    document.getElementById('button-' + paginaBuscaBack).classList.add('pagina-ativa')
-    document.getElementById('button-' + paginaAtual).classList.remove('pagina-ativa')
-    paginaAtual = paginaBuscaBack
-    mountTable(res)
-  })
 }
