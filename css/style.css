@@ -1,0 +1,130 @@
+main {
+  display: flex;
+  width: 100%;
+  border-bottom: 12px solid #D42026;
+  flex-flow: column;
+  padding: 0 30px
+}
+
+.content {
+  /* position: absolute;
+  min-height: 540px;
+  height: 100%;
+  flex-flow: column;
+  border-bottom: 12px solid #D42026; */
+}
+
+header {
+  padding-top: 25px;
+  width: 100%;
+  color: #D42026;
+  font-size: 27px;
+  font-family: 'Roboto Black';
+}
+
+header div h1 {
+  flex: 2 0 0;
+  font-size: 27px;
+}
+
+header div span {
+  font-family: 'Roboto Light';
+}
+
+.borda {
+  content: '';
+  display: block;
+  width: 54px;
+  height: 4px;
+  background: #D42026;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container .nome-candidato {
+  font-size: 27px;
+  font-family: 'Roboto Light';
+}
+
+.main {
+  min-height: 680px;
+  padding-top: 35px;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.nome-personagem {
+  color: #D42026;
+  font-size: 16px;
+  font-family: 'Roboto Regular';
+}
+
+.input-busca-personagem {
+  border: 1px solid #a5a5a5;
+  padding: 5px;
+  border-radius: 3px;
+  height: 31px;
+  width: 400px;
+}
+
+/* table */
+
+.table-main {
+  flex: 1 1 auto;
+  margin-top: 35px;
+  position: relative;
+}
+
+.table {
+  margin-bottom: 40px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table thead th:last-child {
+  padding-right: 0;
+}
+
+.table thead th {
+  height: 37px;
+  background: #D42026;
+  padding: 9px 16px;
+  padding-right: 10px;
+  text-align: left;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* body table */
+
+.table tbody tr {
+  animation: fadeIn 0.3s ease 0.1s;
+}
+
+.table tbody tr:hover {
+  background: rgba(212, 32, 38, 0.1);
+}
+
+.table tbody tr td {
+  height: 30px;
+  padding: 10px 16px;
+  border: solid 1px #D42026;
+  border-top: 0;
+}
+
+.avatar {
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  margin: 0 25px 0 16px;
+  border: 1px solid #000;
+  border-radius: 58px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.avatar img {
+  width: 100%
+}

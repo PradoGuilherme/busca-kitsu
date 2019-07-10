@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teste - Objective Solutions</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class="flex-container">
+        <h1>BUSCA KITSU <span>TESTE FRONT-END</span></h1>
+        <h2 class="nome-candidato">
+          GUILHERME PRADO NUNES DE OLIVEIRA
+        </h2>
+      </div>
+      <div class="borda"></div>
+    </header>
+    <section class="main">
+      <div class="content">
+
+        <div class="flex-container" style="flex-flow: column;">
+          <label for="nome-personagem" class="nome-personagem">
+            Nome do personagem
+          </label>
+          <input type="text" class="input-busca-personagem" name="Personagem" id="busca-personagem-nome">
+        </div>
+
+        <div class="table-main">
+          <table class="table fixed">
+            <thead>
+              <tr>
+                <th width="25%" class="dados-personagem">Personagem</th>
+                <th width="75%" class="detalhes">Detalhes</th>
+              </tr>
+            </thead>
+            <tbody id="personagens"></tbody>
+          </table>
+        </div>
+
+        <div class="wrapper-pagination">
+          <button class="prevPage">
+            <</button> <ul class="pagination">
+              <!-- paginas -->
+              </ul>
+              <button class="nextPage">></button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+<script src="js/busca.js"></script>
+<script src="js/service.js"></script>
+<script src="js/controller.js"></script>
+
+</html>
