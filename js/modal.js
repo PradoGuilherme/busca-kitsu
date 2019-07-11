@@ -1,6 +1,8 @@
 function openModal (objCharacter, imagem, nomeCharacter, description) {
   document.querySelector('body').style = 'cursor: wait'
   document.querySelector('tbody tr').style = 'cursor: wait'
+  document.querySelector('.table-main').classList.add('not-active')
+  document.querySelector('.paginationList').classList.add('not-active')
   var links = []
   document.getElementById('poster').innerHTML = ''
   document.getElementById('modal-text').innerHTML = ''
@@ -33,5 +35,7 @@ function openModal (objCharacter, imagem, nomeCharacter, description) {
 }
 
 function hideModal () {
+  document.querySelector('.table-main').classList.remove('not-active')
+  document.querySelector('.paginationList').classList.remove('not-active')
   document.getElementById('modal-show').style = 'display:none'
 }

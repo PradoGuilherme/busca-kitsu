@@ -19,16 +19,16 @@
   .main {
     padding-top: 12px!important;
   }
-  .nome-candidato, .detalhes, .limpar-busca, .descricao {
+  .candidateName, .details, .cleanSearch, .descricao {
     display: none!important;
   }
-  .paginacao li:first-child {
+  .pagination li:first-child {
     margin-left: 60px!important;
   }
-  .paginacao li:last-child {
+  .pagination li:last-child {
     margin-right: 60px!important;
   }
-  .list-paginacao {
+  .paginationList {
     height: 68px!important
   }
   table {

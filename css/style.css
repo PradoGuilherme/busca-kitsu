@@ -27,7 +27,7 @@ header div span {
   font-weight: 300;
 }
 
-.borda {
+.border {
   content: '';
   display: block;
   width: 54px;
@@ -39,7 +39,7 @@ header div span {
   display: flex;
 }
 
-.flex-container .nome-candidato {
+.flex-container .candidateName {
   font-size: 27px;
   font-weight: 300;
 }
@@ -57,7 +57,7 @@ header div span {
   font-weight: 400;
 }
 
-.input-busca-personagem {
+.input-search-character {
   border: 1px solid #a5a5a5;
   padding: 5px;
   border-radius: 3px;
@@ -161,14 +161,14 @@ tbody tr {
   width: 100%
 }
 
-.list-paginacao {
+.paginationList {
   align-items: center;
   display: flex;
   height: 138px;
   justify-content: center;
 }
 
-.list-paginacao li button:hover {
+.paginationList li button:hover {
   background-color: #D42026!important;
   color: #fff!important;
   -o-transition: .3s;
@@ -178,7 +178,7 @@ tbody tr {
   transition: .3s;
 }
 
-.paginacao {
+.pagination {
   display: flex;
   padding: 0;
   list-style-type: none;
@@ -189,7 +189,7 @@ tbody tr {
   display: flex;
 }
 
-.paginacao button {
+.pagination button {
   -o-transition: .3s;
   -ms-transition: .3s;
   -moz-transition: .3s;
@@ -205,15 +205,15 @@ tbody tr {
   color: #D42026
 }
 
-.paginacao li {
+.pagination li {
   margin-right: 20px;
 }
 
-.paginacao li:first-child {
+.pagination li:first-child {
   margin-left: 12px;
 }
 
-.paginacao li:last-child {
+.pagination li:last-child {
   margin-right: 12px;
 }
 
@@ -231,6 +231,13 @@ tbody tr {
   cursor: pointer;
 }
 
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
+
 .right {
   background: url('../img/right.png') no-repeat;
   border: none;
@@ -240,7 +247,7 @@ tbody tr {
   cursor: pointer;
 }
 
-.limpar-busca {
+.cleanSearch {
   cursor: pointer;
   padding-top: 10px;
   display: none;

@@ -17,11 +17,11 @@
     <header>
       <div class="flex-container">
         <h1>BUSCA KITSU <span>TESTE FRONT-END</span></h1>
-        <h2 class="nome-candidato">
+        <h2 class="candidateName">
           GUILHERME PRADO NUNES DE OLIVEIRA
         </h2>
       </div>
-      <div class="borda"></div>
+      <div class="border"></div>
     </header>
     <section class="main">
       <div class="loading">
@@ -41,27 +41,28 @@
           <label for="nome-personagem" class="nome-personagem">
             Nome do personagem
           </label>
-          <input type="text" class="input-busca-personagem" name="Personagem" id="busca-personagem-nome">
-          <div id="limpa-busca" onclick="limpaBusca()" class="limpar-busca">Limpar busca</div>
+          <input onkeyup="searchCharacter()" type="text" class="input-search-character" name="Personagem"
+            id="findCharacterByName">
+          <div id="cleanSearch" onclick="cleanSearch()" class="cleanSearch">Limpar busca</div>
         </div>
 
         <div class="table-main">
           <table class="table">
             <thead>
               <tr>
-                <th width="25%" class="dados-personagem">Personagem</th>
-                <th width="75%" class="detalhes">Detalhes</th>
+                <th width="25%" class="characterData">Personagem</th>
+                <th width="75%" class="details">Detalhes</th>
               </tr>
             </thead>
           </table>
           <table cell-spacing="0" class="table table-body">
-            <tbody id="personagens"></tbody>
+            <tbody id="characters"></tbody>
           </table>
         </div>
 
-        <div class="list-paginacao">
+        <div class="paginationList">
           <button onclick="backPage()" class="left"></button>
-          <ul class="paginacao">
+          <ul class="pagination">
           </ul>
           <button onclick="nextPage()" class="right"></button>
         </div>
@@ -70,9 +71,9 @@
   </main>
 </body>
 
-<script src="js/busca.js"></script>
+<script src="js/search.js"></script>
 <script src="js/service.js"></script>
-<script src="js/paginacao.js"></script>
+<script src="js/pagination.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/modal.js"></script>
 

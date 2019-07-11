@@ -1,26 +1,26 @@
-var personagensBody = document.getElementById('personagens')
+var charactersBody = document.getElementById('characters')
 var maxLength = 180
-var paginaAtual = 0
-var buscaInput = ''
-var totalDePaginas
+var currentPage = 0
+var searchInput = ''
+var totalPages
 
-window.getCharacters(paginaAtual, null, function (res) {
+window.getCharacters(currentPage, null, function (res) {
   addButtonsPagination(res.meta.count)
   mountTable(res)
 })
 
 window.onload = function () {
   document.querySelector('main').style = 'height: ' + window.innerHeight + 'px'
-  var tamanhoTotal = 312 + 41
-  if (window.innerWidth < 420) tamanhoTotal = tamanhoTotal - 123
-  document.getElementById('personagens').setAttribute('style', 'height:' + (window.innerHeight - tamanhoTotal) + 'px')
+  var totalSize = 312 + 41
+  if (window.innerWidth < 420) totalSize = totalSize - 123
+  document.getElementById('characters').setAttribute('style', 'height:' + (window.innerHeight - totalSize) + 'px')
 }
 
-function mountTable (elementos) {
-  if (elementos.data.length) {
-    personagensBody.innerHTML = ''
-    for (var i = 0; i < elementos.data.length; i++) {
-      var trimmedString = elementos.data[i].attributes.description.substr(0, maxLength)
+function mountTable (elements) {
+  if (elements.data.length) {
+    charactersBody.innerHTML = ''
+    for (var i = 0; i < elements.data.length; i++) {
+      var trimmedString = elements.data[i].attributes.description.substr(0, maxLength)
       if (!trimmedString) {
         trimmedString = 'Não encontramos descrição deste personagem!'
       } else {
@@ -28,19 +28,19 @@ function mountTable (elementos) {
       }
 
       var item = ''
-      var linkFoto = 'img/semfoto.png'
-      if (elementos.data[i].attributes && elementos.data[i].attributes.image && elementos.data[i].attributes.image.original) {
-        linkFoto = elementos.data[i].attributes.image.original
+      var photoLink = 'img/semfoto.png'
+      if (elements.data[i].attributes && elements.data[i].attributes.image && elements.data[i].attributes.image.original) {
+        photoLink = elements.data[i].attributes.image.original
       }
-      item += '<tr onclick="openModal(`' + elementos.data[i].relationships.mediaCharacters.links.related + '`, `' + linkFoto + '`' + ', `' + elementos.data[i].attributes.canonicalName + '`, `' + elementos.data[i].attributes.description.replace(/["|']/g, '') + '` )" data-id=' + elementos.data[i].id + '>'
-      item += '<td width="25%" class="personagem-avatar"><div class="avatar"><img src="' + linkFoto + '" /></div>' + elementos.data[i].attributes.canonicalName + '</td>'
+      item += '<tr onclick="openModal(`' + elements.data[i].relationships.mediaCharacters.links.related + '`, `' + photoLink + '`' + ', `' + elements.data[i].attributes.canonicalName + '`, `' + elements.data[i].attributes.description.replace(/["|']/g, '') + '` )">'
+      item += '<td width="25%" class="personagem-avatar"><div class="avatar"><img src="' + photoLink + '" /></div>' + elements.data[i].attributes.canonicalName + '</td>'
       item += '<td width="75%" class="descricao">' + trimmedString + '</td>'
       item += '</tr>'
 
       document.querySelector('body').style = 'cursor: auto'
-      personagensBody.insertAdjacentHTML('beforeend', item)
+      charactersBody.insertAdjacentHTML('beforeend', item)
     }
   } else {
-    personagensBody.innerHTML = "<tr><td colspan='3'>Nenhum Resultado Encontrado</td></tr>"
+    charactersBody.innerHTML = "<tr><td colspan='3'>Nenhum Resultado Encontrado</td></tr>"
   }
 }
