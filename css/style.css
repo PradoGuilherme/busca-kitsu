@@ -80,8 +80,38 @@ header div span {
   table-layout: fixed;
 }
 
-.table thead th:last-child {
-  padding-right: 0;
+tbody {
+  display: block;
+}
+
+tbody {
+  overflow-y: scroll;
+  height: 100px;
+}
+
+.table th, .table td {
+  padding: 5px;
+}
+
+.table-main .table-body {
+  border-collapse: collapse;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F4F4F4;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: #F4F4F4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
 }
 
 .table thead th {
@@ -103,7 +133,7 @@ header div span {
 }
 
 .table tbody tr td {
-  border-bottom: solid 1px #ee9ecc;
+  border-bottom: solid 1.6px rgba(212, 32, 38, 0.3);
   padding: 20px 15px;
   border-top: 0;
 }
@@ -134,7 +164,7 @@ header div span {
 .list-paginacao {
   align-items: center;
   display: flex;
-  height: 115px;
+  height: 138px;
   justify-content: center;
 }
 
@@ -166,6 +196,7 @@ header div span {
   -webkit-transition: .3s;
   transition: .3s;
   width: 32px;
+  outline: none;
   cursor: pointer;
   border: solid 1px #D42026;
   height: 32px;
@@ -214,4 +245,44 @@ header div span {
   padding-top: 10px;
   display: none;
   color: #D42026;
+}
+
+.modal {
+  position: absolute;
+  width: 80%;
+  height: 510px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fdfdfd;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.modal .header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.modal .body {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.modal .header .close {
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: #000;
+  border: none;
 }

@@ -12,9 +12,10 @@ input.addEventListener('keyup', function (e) {
   })
 })
 
-function limpaBusca () {
+function limpaBusca() {
   input.value = ''
   window.buscaInput = ''
+  document.getElementById('limpa-busca').style = 'display: none'
   window.getCharacters(0, input.value.toUpperCase(), function (res) {
     window.addButtonsPagination(res.meta.count)
     window.mountTable(res)

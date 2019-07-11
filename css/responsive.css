@@ -1,0 +1,49 @@
+@media screen and (max-width: 900px) {
+  header {
+    padding-top: 12px!important;
+    padding: 0 42px
+  }
+  header h1 {
+    font-size: 16px!important;
+  }
+  #find {
+    padding: 0 42px
+  }
+  #find input {
+    width: 100%
+  }
+  main {
+    overflow: hidden;
+    padding: 0!important
+  }
+  .main {
+    padding-top: 12px!important;
+  }
+  .nome-candidato, .detalhes, .limpar-busca, .descricao {
+    display: none!important;
+  }
+  .paginacao li:first-child {
+    margin-left: 60px!important;
+  }
+  .paginacao li:last-child {
+    margin-right: 60px!important;
+  }
+  .list-paginacao {
+    height: 68px!important
+  }
+  table {
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0;
+  }
+  thead, tbody {
+    display: block;
+  }
+  tbody {
+    overflow: auto;
+  }
+  .table-main {
+    margin-top: 12px!important;
+  }
+}

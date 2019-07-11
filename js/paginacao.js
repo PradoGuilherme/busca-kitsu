@@ -2,6 +2,7 @@
 function addButtonsPagination (qtdTotalPersonagens) {
   window.totalDePaginas = (qtdTotalPersonagens / 10)
   var paginacao = document.getElementsByClassName('paginacao')[0]
+  paginacao.innerHTML = ''
   var qtdPaginacao
   if (window.innerWidth < 361) {
     qtdPaginacao = 3
@@ -9,7 +10,6 @@ function addButtonsPagination (qtdTotalPersonagens) {
     qtdPaginacao = 6
   }
 
-  paginacao.innerHTML = ''
   for (var i = window.paginaAtual + 1; i <= (window.paginaAtual + qtdPaginacao) && i <= window.totalDePaginas; i++) {
     if ((i - 1) === window.paginaAtual) {
       paginacao.insertAdjacentHTML('beforeend', '<li><button onclick="selectPage(`button-' + (i - 1) + '`)" class="pagina-ativa" id=button-' + (i - 1) + '>' + i + '</button></li>')
@@ -41,7 +41,7 @@ function nextPage () {
 function backPage () {
   var paginaBuscaBack = window.paginaAtual - 1
   if (paginaBuscaBack < 0) {
-    document.querySelector('main').style = 'cursor: auto'
+    document.querySelector('body').style = 'cursor: auto'
     return
   }
   window.getCharacters(paginaBuscaBack, window.buscaInput, function (res) {
