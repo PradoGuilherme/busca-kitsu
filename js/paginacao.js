@@ -4,7 +4,7 @@ function addButtonsPagination (qtdTotalPersonagens) {
   var paginacao = document.getElementsByClassName('paginacao')[0]
   paginacao.innerHTML = ''
   var qtdPaginacao
-  if (window.innerWidth < 361) {
+  if (window.innerWidth < 420) {
     qtdPaginacao = 3
   } else {
     qtdPaginacao = 6
