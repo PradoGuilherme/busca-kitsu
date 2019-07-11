@@ -39,20 +39,24 @@ function getMoreInfoMedia (link, callback) {
   request.send()
 }
 
-function getMedia (link, callback) {
-  console.log('TCL: getMedia -> link', link)
-  request.open('GET', link)
-
-  request.onload = function () {
-    if (request.readyState === request.DONE && request.status === 200) {
-      var retorno = JSON.parse(request.response)
-      callback(retorno)
+function getMedia (links, callback) {
+  var retornos = []
+  var request = new XMLHttpRequest();
+  (function loop (i, length) {
+    if (i >= length) {
+      return
     }
-  }
 
-  request.onerror = function () {
-    window.alert(request.statusText)
-  }
+    request.open('GET', links[i])
+    request.onreadystatechange = function () {
+      if (request.readyState === request.DONE && request.status === 200) {
+        var data = JSON.parse(request.responseText)
+        retornos.push(data)
+        if (i === (links.length - 1)) return callback(retornos)
 
-  request.send()
+        loop(i + 1, length)
+      }
+    }
+    request.send()
+  })(0, links.length)
 }

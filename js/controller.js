@@ -11,11 +11,9 @@ window.getCharacters(paginaAtual, null, function (res) {
 
 window.onload = function () {
   document.querySelector('main').style = 'height: ' + window.innerHeight + 'px'
-  var tamanhoTotal = 250
-  if (window.innerWidth < 800) {
-    tamanhoTotal = 234
-  }
-  document.getElementById('personagens').setAttribute('style', 'height:' + (640 - tamanhoTotal) + 'px')
+  var tamanhoTotal = 312 + 41
+  if (window.innerWidth < 420) tamanhoTotal = tamanhoTotal - 123
+  document.getElementById('personagens').setAttribute('style', 'height:' + (window.innerHeight - tamanhoTotal) + 'px')
 }
 
 function mountTable (elementos) {
@@ -34,7 +32,7 @@ function mountTable (elementos) {
       if (elementos.data[i].attributes && elementos.data[i].attributes.image && elementos.data[i].attributes.image.original) {
         linkFoto = elementos.data[i].attributes.image.original
       }
-      item += '<tr onclick="openModal(`' + elementos.data[i].relationships.mediaCharacters.links.related + '`)" data-id=' + elementos.data[i].id + '>'
+      item += '<tr onclick="openModal(`' + elementos.data[i].relationships.mediaCharacters.links.related + '`, `' + linkFoto + '`' + ', `' + elementos.data[i].attributes.canonicalName + '`, `' + elementos.data[i].attributes.description.replace(/["|']/g, '') + '` )" data-id=' + elementos.data[i].id + '>'
       item += '<td width="25%" class="personagem-avatar"><div class="avatar"><img src="' + linkFoto + '" /></div>' + elementos.data[i].attributes.canonicalName + '</td>'
       item += '<td width="75%" class="descricao">' + trimmedString + '</td>'
       item += '</tr>'
