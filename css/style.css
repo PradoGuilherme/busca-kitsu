@@ -45,7 +45,7 @@ header div span {
 }
 
 .main {
-  min-height: 680px;
+  /* min-height: 680px; */
   padding-top: 34px;
   position: relative;
   flex: 1 1 auto;
@@ -248,6 +248,7 @@ tbody tr {
 }
 
 .modal {
+  display: none;
   position: absolute;
   width: 80%;
   height: 510px;
@@ -284,5 +285,13 @@ tbody tr {
   background-color: transparent;
   font-size: 1.5rem;
   color: #000;
+  cursor: pointer;
   border: none;
+}
+
+#modal-text {
+  height: 355px;
+  overflow-y: scroll;
+  width: 100%;
+  padding: 0px 16px;
 }

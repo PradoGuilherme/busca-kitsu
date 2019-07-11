@@ -46,4 +46,13 @@
   .table-main {
     margin-top: 12px!important;
   }
+  #poster {
+    width: 30%!important;
+  }
+  #poster img {
+    width: 100%!important;
+  }
+  #modal-text {
+    text-align: justify
+  }
 }
