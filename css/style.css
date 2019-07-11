@@ -283,6 +283,17 @@ tbody tr {
   border-top-right-radius: 0.3rem;
 }
 
+.title-text {
+  font-weight: 900;
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+#nameCharacter h2, .title-text {
+  color: #D42026;
+}
+
 .modal .body {
   flex: 1 1 auto;
   padding: 1rem;
@@ -298,6 +309,7 @@ tbody tr {
 
 #modal-text {
   height: 355px;
+  text-align: justify;
   overflow-y: scroll;
   width: 100%;
   padding: 0px 16px;
