@@ -1,4 +1,4 @@
-function openModal(objCharacter, imagem, nomeCharacter, description) {
+function openModal (objCharacter, imagem, nomeCharacter, description) {
   document.querySelector('body').style = 'cursor: wait'
   document.querySelector('tbody tr').style = 'cursor: wait'
   document.querySelector('.table-main').classList.add('not-active')
@@ -27,7 +27,6 @@ function openModal(objCharacter, imagem, nomeCharacter, description) {
         document.getElementById('modal-text').insertAdjacentHTML('beforeend', '<div> <p class="title-text"> Descrição: </p> ' + description + '</div><br><p class="title-text">Mídias do personagem: </p> ')
         res.forEach(element => {
           var averageRating = element.data.attributes.averageRating || '0'
-          console.log('TCL: openModal -> element', element.data.attributes)
           var nomeMedia = element.data.attributes.titles.en || element.data.attributes.titles.en_jp
           document.getElementById('modal-text').insertAdjacentHTML('beforeend', '<div>' + nomeMedia + ' - Classificação: ' + averageRating + '</div>')
         })
@@ -36,7 +35,7 @@ function openModal(objCharacter, imagem, nomeCharacter, description) {
   })
 }
 
-function hideModal() {
+function hideModal () {
   document.querySelector('.table-main').classList.remove('not-active')
   document.querySelector('.paginationList').classList.remove('not-active')
   document.getElementById('modal-show').style = 'display:none'
