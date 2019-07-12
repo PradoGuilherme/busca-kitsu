@@ -1,6 +1,7 @@
 var input = document.getElementById('findCharacterByName')
 
 function searchCharacter () {
+  window.currentPage = 0
   window.searchInput = input.value.toUpperCase()
   if (window.searchInput) {
     document.getElementById('cleanSearch').style = 'display: block'
