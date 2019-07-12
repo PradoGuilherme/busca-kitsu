@@ -1,10 +1,12 @@
 
+var qtdNavigation
+var totalCharacters = 0
 function addButtonsPagination (qtdTotalCharacters) {
-  window.totalPages = (qtdTotalCharacters / 10)
+  totalCharacters = qtdTotalCharacters
+  window.totalPages = Math.ceil(qtdTotalCharacters / 10)
   var pagination = document.getElementsByClassName('pagination')[0]
   pagination.innerHTML = ''
-  var qtdNavigation
-  if (window.innerWidth < 420) {
+  if (window.innerWidth <= 770) {
     qtdNavigation = 3
   } else {
     qtdNavigation = 6
@@ -17,6 +19,15 @@ function addButtonsPagination (qtdTotalCharacters) {
       pagination.insertAdjacentHTML('beforeend', '<li><button onclick="selectPage(`button-' + (i - 1) + '`)" id=button-' + (i - 1) + '>' + i + '</button></li>')
     }
   }
+}
+
+window.onresize = function () {
+  if (window.innerWidth <= 770) {
+    qtdNavigation = 3
+  } else {
+    qtdNavigation = 6
+  }
+  addButtonsPagination(totalCharacters)
 }
 
 function selectPage (id) {
